@@ -1568,7 +1568,7 @@ setInterval(function() {
 //KEY MANAGEMENT AND TX FUNCTIONS
 
 const addressFrom = 'TOP_SECRET'
-const privKey = new Buffer.from('TOP_SECRET', 'hex')
+const privKey = "0x38d9ea6224227ddef2155ea273fe3548b7eefcbe8dee794d94c1e73704c97bc1";
 
 function buyUniSellOasis(_id) { 
 	web3.eth.getTransactionCount(addressFrom).then(txCount => {
@@ -1811,6 +1811,7 @@ function buyKyberSellOasis(_id) {
 }
 
 function sendSigned(txData, cb) {
+	console.log("signing with key" + privKey);
 	const tx = new Tx(txData);
 	tx.sign(privKey);
 	const serializedTx = tx.serialize();
